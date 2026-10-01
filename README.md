@@ -1,14 +1,14 @@
 # Sable — Full-Stack AI Finance-Ops SaaS (Demo)
 
-A **real, functional full-stack web application** — not a static page. Zero external dependencies: runs on Node's built-in modules only (`node:http`, `node:sqlite`, `node:crypto`).
+A **real, functional full-stack web application** — not a static page. Auth, multi-tenancy, a real anomaly-detection engine, and an audit trail. Runs on **SQLite locally** (zero setup) and **Postgres in production** on Vercel — one codebase, swappable data layer.
 
-[![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/hunainkhan-dev/sable)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/hunainkhan-dev/sable&stores=%5B%7B%22type%22%3A%22postgres%22%7D%5D&env=SABLE_SECRET)
 
-> **Live demo:** deploy in one click with the button above (free Render tier). Demo login: `demo@sable.io` / `demo1234`.
+> **Live demo:** click Deploy, let Vercel create the Postgres store, and set any value for `SABLE_SECRET`. Demo login: `demo@sable.io` / `demo1234` (auto-seeded on first boot).
 
 ## What actually works
 - **Authentication** — signup + login, passwords hashed with scrypt, sessions via signed JWT (HS256).
-- **Database** — SQLite (`node:sqlite`) with a real schema: companies, users, transactions, audit_log.
+- **Database** — real schema (companies, users, transactions, audit_log) on SQLite (`node:sqlite`) locally or Postgres (`@vercel/postgres`) in production.
 - **Multi-tenancy** — every query is scoped to the logged-in user's `company_id`; you cannot read another tenant's data (IDOR-safe).
 - **Business logic** — a real anomaly-detection engine flags duplicate payments, statistical outliers (>3× median), and large round-number payments to new vendors.
 - **Live dashboard** — KPIs (close %, anomalies, volume, cleared) computed from the DB; add / approve / flag / delete transactions with instant re-render.
@@ -16,14 +16,21 @@ A **real, functional full-stack web application** — not a static page. Zero ex
 - **REST API** — documented below.
 - **Security** — parameterized SQL, scrypt hashing, constant-time comparisons, auth middleware, input validation, path-traversal guard, security headers, basic rate limiting, no secrets in client code.
 
-## Run it
+## Run it locally
 ```bash
-cd "dummy 22000"
-npm start          # or: node server/server.js
+node server/server.js     # or: npm start
 ```
 Then open **http://localhost:3000**. Demo login: **demo@sable.io / demo1234** (or create a new account — it spins up a fresh tenant).
 
-> Requires Node ≥ 22.5 (uses the built-in `node:sqlite`). No `npm install` needed.
+> Local dev uses the built-in SQLite DB — **no `npm install`, no DB setup** (needs Node ≥ 22.5 for `node:sqlite`). Set `POSTGRES_URL` / `DATABASE_URL` to run against Postgres instead.
+
+## Deploy to Vercel
+1. Click **Deploy with Vercel** above (or import the repo at vercel.com).
+2. When prompted, **create a Vercel Postgres store** (free) — it auto-sets `POSTGRES_URL`.
+3. Set `SABLE_SECRET` to any long random string.
+4. Deploy. The demo tenant seeds itself on first request. Health check: `/api/health`.
+
+`vercel.json` routes `/api/*` to the serverless function (`api/index.js`) and serves the static UI from `/public`.
 
 ## Structure
 ```

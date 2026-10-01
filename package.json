@@ -1,11 +1,14 @@
 {
   "name": "sable",
   "version": "1.0.0",
-  "description": "Sable — AI financial operations SaaS (full-stack demo). Zero external dependencies.",
+  "description": "Sable — AI financial operations SaaS (full-stack). SQLite locally, Postgres on Vercel.",
   "type": "module",
   "engines": { "node": ">=22.5.0" },
   "scripts": {
     "start": "node server/server.js",
     "dev": "node --watch server/server.js"
+  },
+  "dependencies": {
+    "@vercel/postgres": "^0.10.0"
   }
 }
