@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: sable
+    runtime: node
+    plan: free
+    buildCommand: npm install
+    startCommand: node server/server.js
+    healthCheckPath: /
+    envVars:
+      - key: NODE_VERSION
+        value: "24"
+      - key: SABLE_SECRET
+        generateValue: true

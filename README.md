@@ -1,6 +1,10 @@
 # Sable — Full-Stack AI Finance-Ops SaaS (Demo)
 
-A **real, functional full-stack web application** — not a static page. Built as a live test of the `ultimate-web-dev` skill (Agency mode, Enterprise tier). Zero external dependencies: runs on Node's built-in modules only.
+A **real, functional full-stack web application** — not a static page. Zero external dependencies: runs on Node's built-in modules only (`node:http`, `node:sqlite`, `node:crypto`).
+
+[![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/hunainkhan-dev/sable)
+
+> **Live demo:** deploy in one click with the button above (free Render tier). Demo login: `demo@sable.io` / `demo1234`.
 
 ## What actually works
 - **Authentication** — signup + login, passwords hashed with scrypt, sessions via signed JWT (HS256).
