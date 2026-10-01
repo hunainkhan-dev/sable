@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard · Sable</title>
+  <meta name="robots" content="noindex" />
+  <meta name="theme-color" content="#0070E0" />
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/app.css" />
+</head>
+<body class="app-body">
+  <div class="shell">
+    <!-- ============ SIDEBAR ============ -->
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar__top">
+        <a class="brand" href="/">
+          <span class="brand__mark" aria-hidden="true"><svg width="26" height="26" viewBox="0 0 26 26" fill="none"><path d="M13 1l3.5 7.5L24 12l-7.5 3.5L13 23l-3.5-7.5L2 12l7.5-3.5L13 1z" fill="url(#g)"/><defs><linearGradient id="g" x1="2" y1="1" x2="24" y2="23"><stop stop-color="#003087"/><stop offset="1" stop-color="#009CDE"/></linearGradient></defs></svg></span>
+          <span class="brand__name">Sable</span>
+        </a>
+        <button class="side-close" id="sideClose" aria-label="Close menu">✕</button>
+      </div>
+
+      <nav class="side-nav" id="sideNav" aria-label="Primary">
+        <span class="side-nav__label">Workspace</span>
+        <a class="side-nav__item" href="#/overview" data-view="overview">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="9"/><rect x="14" y="3" width="7" height="5"/><rect x="14" y="12" width="7" height="9"/><rect x="3" y="16" width="7" height="5"/></svg>
+          Overview
+        </a>
+        <a class="side-nav__item" href="#/transactions" data-view="transactions">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18M3 12h18M3 18h12"/></svg>
+          Transactions
+        </a>
+        <a class="side-nav__item" href="#/analytics" data-view="analytics">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 14l3-4 3 3 4-6"/></svg>
+          Analytics
+        </a>
+        <a class="side-nav__item" href="#/approvals" data-view="approvals">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+          Approvals
+          <span class="side-nav__pill" id="navFlagged" hidden>0</span>
+        </a>
+        <a class="side-nav__item" href="#/audit" data-view="audit">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 8v4l3 2"/><circle cx="12" cy="12" r="9"/></svg>
+          Audit log
+        </a>
+        <span class="side-nav__label">Account</span>
+        <a class="side-nav__item" href="#/settings" data-view="settings">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+          Settings
+        </a>
+      </nav>
+
+      <div class="sidebar__foot">
+        <div class="upsell">
+          <div class="upsell__glow" aria-hidden="true"></div>
+          <p class="upsell__title">Sable Scale</p>
+          <p class="upsell__sub">Unlock live forecasting &amp; multi-entity close.</p>
+          <a class="btn btn--primary btn--block btn--sm" href="/#pricing">Upgrade</a>
+        </div>
+        <div class="user-card">
+          <span class="user-card__av" id="userAvatar">—</span>
+          <span class="user-card__meta">
+            <span class="user-card__name" id="userName">—</span>
+            <span class="user-card__co" id="companyName">—</span>
+          </span>
+        </div>
+      </div>
+    </aside>
+    <div class="scrim" id="scrim" hidden></div>
+
+    <!-- ============ MAIN COLUMN ============ -->
+    <div class="main-col">
+      <header class="topbar">
+        <button class="side-toggle" id="sideToggle" aria-label="Open menu"><span></span><span></span><span></span></button>
+        <div class="topbar__title">
+          <h1 id="viewTitle">Overview</h1>
+          <p class="app__sub" id="viewSub">Welcome back.</p>
+        </div>
+        <div class="topbar__tools">
+          <label class="searchbox">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4-4"/></svg>
+            <input type="search" id="globalSearch" placeholder="Search transactions…" aria-label="Search" />
+          </label>
+          <button class="icon-btn" id="themeToggle" aria-label="Toggle theme" title="Toggle theme">
+            <svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+            <svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+          </button>
+          <button class="icon-btn notif" id="notifBtn" aria-label="Notifications" title="Approvals pending">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+            <span class="notif__dot" id="notifDot" hidden></span>
+          </button>
+          <button class="btn btn--ghost btn--sm" id="logoutBtn">Sign out</button>
+        </div>
+      </header>
+
+      <main class="app" id="view" aria-live="polite"></main>
+    </div>
+  </div>
+
+  <script>
+    /* Theme toggle + sidebar (self-contained, no deps) */
+    (function () {
+      var root = document.documentElement;
+      try { var s = localStorage.getItem('sable-theme'); if (s) root.setAttribute('data-theme', s); } catch (e) {}
+      var tb = document.getElementById('themeToggle');
+      if (tb) tb.addEventListener('click', function () {
+        var n = root.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+        root.setAttribute('data-theme', n);
+        try { localStorage.setItem('sable-theme', n); } catch (e) {}
+      });
+      var sb = document.getElementById('sidebar'), sc = document.getElementById('scrim');
+      window.__toggleSide = function (o) { sb.classList.toggle('is-open', o); if (sc) { if (o) sc.removeAttribute('hidden'); else sc.setAttribute('hidden', ''); } };
+      var t = document.getElementById('sideToggle'); if (t) t.addEventListener('click', function () { window.__toggleSide(!sb.classList.contains('is-open')); });
+      var c = document.getElementById('sideClose'); if (c) c.addEventListener('click', function () { window.__toggleSide(false); });
+      if (sc) sc.addEventListener('click', function () { window.__toggleSide(false); });
+    })();
+  </script>
+  <script src="assets/js/app.js" defer></script>
+</body>
+</html>

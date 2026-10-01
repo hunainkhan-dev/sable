@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sign in · Sable</title>
+  <meta name="description" content="Sign in to Sable — AI operations for modern finance." />
+  <meta name="theme-color" content="#0070E0" />
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/app.css" />
+</head>
+<body class="auth-body">
+  <div class="auth-glow" aria-hidden="true"></div>
+  <main class="auth">
+    <a class="brand" href="/">
+      <span class="brand__mark" aria-hidden="true"><svg width="26" height="26" viewBox="0 0 26 26" fill="none"><path d="M13 1l3.5 7.5L24 12l-7.5 3.5L13 23l-3.5-7.5L2 12l7.5-3.5L13 1z" fill="url(#g)"/><defs><linearGradient id="g" x1="2" y1="1" x2="24" y2="23"><stop stop-color="#003087"/><stop offset="1" stop-color="#009CDE"/></linearGradient></defs></svg></span>
+      <span class="brand__name">Sable</span>
+    </a>
+
+    <div class="auth-card">
+      <div class="auth-tabs">
+        <button class="auth-tab is-active" data-tab="login">Sign in</button>
+        <button class="auth-tab" data-tab="signup">Create account</button>
+      </div>
+
+      <!-- Login -->
+      <form id="loginForm" class="auth-form">
+        <p class="auth-demo">Demo account: <code>demo@sable.io</code> / <code>demo1234</code></p>
+        <label>Work email<input type="email" name="email" value="demo@sable.io" autocomplete="email" required /></label>
+        <label>Password<input type="password" name="password" value="demo1234" autocomplete="current-password" required /></label>
+        <button type="submit" class="btn btn--primary btn--block">Sign in</button>
+        <p class="auth-err" id="loginErr" role="alert"></p>
+      </form>
+
+      <!-- Signup -->
+      <form id="signupForm" class="auth-form" hidden>
+        <label>Full name<input type="text" name="name" autocomplete="name" required /></label>
+        <label>Company<input type="text" name="company" required /></label>
+        <label>Work email<input type="email" name="email" autocomplete="email" required /></label>
+        <label>Password <span class="hint">(min 8 characters)</span><input type="password" name="password" autocomplete="new-password" minlength="8" required /></label>
+        <button type="submit" class="btn btn--primary btn--block">Create account</button>
+        <p class="auth-err" id="signupErr" role="alert"></p>
+      </form>
+    </div>
+    <p class="auth-foot">Your data is encrypted &amp; tenant-isolated. <a href="/">← Back to site</a></p>
+  </main>
+  <script src="assets/js/auth.js" defer></script>
+</body>
+</html>
