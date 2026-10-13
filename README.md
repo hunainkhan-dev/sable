@@ -1,5 +1,7 @@
 # Sable — Full-Stack AI Finance-Ops SaaS (Demo)
 
+### 🔗 [**View Live Demo →**](https://sable-silk.vercel.app)  ·  login `demo@sable.io` / `demo1234`
+
 A **real, functional full-stack web application** — not a static page. Auth, multi-tenancy, a real anomaly-detection engine, and an audit trail. Runs on **SQLite locally** (zero setup) and **Postgres in production** on Vercel — one codebase, swappable data layer.
 
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/hunainkhan-dev/sable&stores=%5B%7B%22type%22%3A%22postgres%22%7D%5D&env=SABLE_SECRET)
